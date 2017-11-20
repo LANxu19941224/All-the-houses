@@ -7,6 +7,25 @@ background: linear-gradient(red, blue); /* 标准的语法（必须放在最后�
 background: linear-gradient(to right, red , blue);
 #对角
 background: linear-gradient(to top right, red , blue);
-#设置更精细的角度
+#使用角度
 #顺时针依次是0deg，90deg，180deg，-90deg
 background: linear-gradient(180deg, red, blue);
+#使用多个颜色结点
+background: linear-gradient(red 10%, green 85%, blue 90%); /* 标准的语法（必须放在最后） */
+#使用透明 
+#为了使用透明度，我们使用rgba()函数来定义结点。函数中的最后一个参数值可以是0到1，它定义颜色的透明度，0表示完全透明，1表示完全不透明
+background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1)); /* 标准的语法（必须放在最后） */
+#重复的线性渐变
+background: repeating-linear-gradient(red, yellow 10%, green 20%);
+#径向渐变
+background: radial-gradient(red, green, blue);
+#设置形状，默认是椭圆
+background: radial-gradient(circle, red, yellow, green); 
+#size 参数定义了渐变的大小。它可以是以下四个值：
+closest-side
+farthest-side
+closest-corner
+farthest-corner
+background: radial-gradient(60% 55%, closest-side,blue,green,yellow,black);
+#重复径向渐变
+background: repeating-radial-gradient(red, yellow 10%, green 15%);

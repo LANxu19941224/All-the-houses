@@ -1,0 +1,12 @@
+#从顶部开始的线性渐变。起点是红色，慢慢过渡到蓝色，可以添加多种颜色，用逗号分开
+background: -webkit-linear-gradient(red, blue); /* Safari 5.1 - 6.0 */
+background: -o-linear-gradient(red, blue); /* Opera 11.1 - 12.0 */
+background: -moz-linear-gradient(red, blue); /* Firefox 3.6 - 15 */
+background: linear-gradient(red, blue); /* 标准的语法（必须放在最后） */
+#从左到右
+background: linear-gradient(to right, red , blue);
+#对角
+background: linear-gradient(to top right, red , blue);
+#设置更精细的角度
+#顺时针依次是0deg，90deg，180deg，-90deg
+background: linear-gradient(180deg, red, blue);

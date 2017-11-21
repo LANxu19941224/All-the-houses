@@ -1,0 +1,16 @@
+AddYears(+1)//增加一年
+AddMonths(-1)//增加一个月
+AddDays(-20d);//减少20天
+AddHours(+20d);//增加20小时
+AddMinutes(10d);//增加10分钟
+ System.TimeSpan t3 = t1 - t2;  //两个时间相减 。默认得到的是 两个时间之间的天数   得到：365.00:00:00  
+  
+double getDay = t3.TotalDays; //将这个天数转换成天数, 返回值是double类型的（其实不必转换，因为t3默认就是天数得到：  
+  
+            double getHours = t3.TotalHours; //将这个天数转换成小时, 返回值是double类型的  
+  
+            double getMinute = t3.TotalMinutes; //将这个天数转换成分钟, 返回值是double类型的  
+  
+            double getSeconds = t3.TotalSeconds; //将这个天数转换成秒数, 返回值是double类型的  
+  
+            double getMillisecond = t3.TotalMilliseconds; ////将这个天数转换成毫秒, 返回值是double类型的

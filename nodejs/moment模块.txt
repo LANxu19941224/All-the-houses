@@ -1,0 +1,46 @@
+MOMENT MOMENT
+TIMEZONE 首页文档测试GitHub
+Moment.js 2.10.6
+JavaScript 日期处理类库
+下载
+moment.js
+moment.min.js 12.4k
+moment+多语言支持.js
+moment+多语言支持.min.js 45.4k
+安装
+bower install moment --save # bower
+npm install moment --save   # npm
+Install-Package Moment.js   # NuGet
+spm install moment --save   # spm
+meteor add momentjs:moment  # meteor
+日期格式化
+moment().format('MMMM Do YYYY, h:mm:ss a'); // 十一月 21日 2017, 10:20:22 上午
+moment().format('dddd');                    // 星期二
+moment().format("MMM Do YY");               // 11月 21日 17
+moment().format('YYYY [escaped] YYYY');     // 2017 escaped 2017
+moment().format('YYYY-MM-DD');              // 2017-11-21
+moment().format();                          // 2017-11-21T10:20:22+08:00
+相对时间
+moment("20111031", "YYYYMMDD").fromNow(); // 6 年前
+moment("20120620", "YYYYMMDD").fromNow(); // 5 年前
+moment().startOf('day').fromNow();        // 10 小时前
+moment().endOf('day').fromNow();          // 14 小时内
+moment().startOf('hour').fromNow();       // 20 分钟前
+日历时间
+moment().subtract(10, 'days').calendar(); // 2017年11月11日
+moment().subtract(6, 'days').calendar();  // 上周三上午10点20
+moment().subtract(3, 'days').calendar();  // 上周六上午10点20
+moment().subtract(1, 'days').calendar();  // 昨天上午10点20分
+moment().calendar();                      // 今天上午10点20分
+moment().add(1, 'days').calendar();       // 明天上午10点20分
+moment().add(3, 'days').calendar();       // 本周五上午10点20
+moment().add(10, 'days').calendar();      // 2017年12月1日
+多语言支持
+moment().format('L');    // 2017-11-21
+moment().format('l');    // 2017-11-21
+moment().format('LL');   // 2017年11月21日
+moment().format('ll');   // 2017年11月21日
+moment().format('LLL');  // 2017年11月21日上午10点20分
+moment().format('lll');  // 2017年11月21日上午10点20分
+moment().format('LLLL'); // 2017年11月21日星期二上午10点20分
+moment().format('llll'); // 2017年11月21日星期二上午10点20分

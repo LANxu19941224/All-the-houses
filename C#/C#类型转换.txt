@@ -1,0 +1,5 @@
+它不会产生异常，转换成功返回 true，转换失败返回 false，
+dataType为目标类型，第一个参数为要转换的值，第二个参数为输出值，
+通常是一个变量需要在前面声明，如果转换失败，输出值为0。
+
+dataType.TryParse(value, out variables )

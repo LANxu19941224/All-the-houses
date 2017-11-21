@@ -1,46 +1,33 @@
-MOMENT MOMENT
-TIMEZONE Ê×Ò³ÎÄµµ²âÊÔGitHub
-Moment.js 2.10.6
-JavaScript ÈÕÆÚ´¦ÀíÀà¿â
-ÏÂÔØ
-moment.js
-moment.min.js 12.4k
-moment+¶àÓïÑÔÖ§³Ö.js
-moment+¶àÓïÑÔÖ§³Ö.min.js 45.4k
-°²×°
-bower install moment --save # bower
+å®‰è£…
 npm install moment --save   # npm
-Install-Package Moment.js   # NuGet
-spm install moment --save   # spm
-meteor add momentjs:moment  # meteor
-ÈÕÆÚ¸ñÊ½»¯
-moment().format('MMMM Do YYYY, h:mm:ss a'); // Ê®Ò»ÔÂ 21ÈÕ 2017, 10:20:22 ÉÏÎç
-moment().format('dddd');                    // ĞÇÆÚ¶ş
-moment().format("MMM Do YY");               // 11ÔÂ 21ÈÕ 17
+æ—¥æœŸæ ¼å¼åŒ–
+moment().format('MMMM Do YYYY, h:mm:ss a'); // åä¸€æœˆ 21æ—¥ 2017, 10:20:22 ä¸Šåˆ
+moment().format('dddd');                    // æ˜ŸæœŸäºŒ
+moment().format("MMM Do YY");               // 11æœˆ 21æ—¥ 17
 moment().format('YYYY [escaped] YYYY');     // 2017 escaped 2017
 moment().format('YYYY-MM-DD');              // 2017-11-21
 moment().format();                          // 2017-11-21T10:20:22+08:00
-Ïà¶ÔÊ±¼ä
-moment("20111031", "YYYYMMDD").fromNow(); // 6 ÄêÇ°
-moment("20120620", "YYYYMMDD").fromNow(); // 5 ÄêÇ°
-moment().startOf('day').fromNow();        // 10 Ğ¡Ê±Ç°
-moment().endOf('day').fromNow();          // 14 Ğ¡Ê±ÄÚ
-moment().startOf('hour').fromNow();       // 20 ·ÖÖÓÇ°
-ÈÕÀúÊ±¼ä
-moment().subtract(10, 'days').calendar(); // 2017Äê11ÔÂ11ÈÕ
-moment().subtract(6, 'days').calendar();  // ÉÏÖÜÈıÉÏÎç10µã20
-moment().subtract(3, 'days').calendar();  // ÉÏÖÜÁùÉÏÎç10µã20
-moment().subtract(1, 'days').calendar();  // ×òÌìÉÏÎç10µã20·Ö
-moment().calendar();                      // ½ñÌìÉÏÎç10µã20·Ö
-moment().add(1, 'days').calendar();       // Ã÷ÌìÉÏÎç10µã20·Ö
-moment().add(3, 'days').calendar();       // ±¾ÖÜÎåÉÏÎç10µã20
-moment().add(10, 'days').calendar();      // 2017Äê12ÔÂ1ÈÕ
-¶àÓïÑÔÖ§³Ö
+ç›¸å¯¹æ—¶é—´
+moment("20111031", "YYYYMMDD").fromNow(); // 6 å¹´å‰
+moment("20120620", "YYYYMMDD").fromNow(); // 5 å¹´å‰
+moment().startOf('day').fromNow();        // 10 å°æ—¶å‰
+moment().endOf('day').fromNow();          // 14 å°æ—¶å†…
+moment().startOf('hour').fromNow();       // 20 åˆ†é’Ÿå‰
+æ—¥å†æ—¶é—´
+moment().subtract(10, 'days').calendar(); // 2017å¹´11æœˆ11æ—¥
+moment().subtract(6, 'days').calendar();  // ä¸Šå‘¨ä¸‰ä¸Šåˆ10ç‚¹20
+moment().subtract(3, 'days').calendar();  // ä¸Šå‘¨å…­ä¸Šåˆ10ç‚¹20
+moment().subtract(1, 'days').calendar();  // æ˜¨å¤©ä¸Šåˆ10ç‚¹20åˆ†
+moment().calendar();                      // ä»Šå¤©ä¸Šåˆ10ç‚¹20åˆ†
+moment().add(1, 'days').calendar();       // æ˜å¤©ä¸Šåˆ10ç‚¹20åˆ†
+moment().add(3, 'days').calendar();       // æœ¬å‘¨äº”ä¸Šåˆ10ç‚¹20
+moment().add(10, 'days').calendar();      // 2017å¹´12æœˆ1æ—¥
+å¤šè¯­è¨€æ”¯æŒ
 moment().format('L');    // 2017-11-21
 moment().format('l');    // 2017-11-21
-moment().format('LL');   // 2017Äê11ÔÂ21ÈÕ
-moment().format('ll');   // 2017Äê11ÔÂ21ÈÕ
-moment().format('LLL');  // 2017Äê11ÔÂ21ÈÕÉÏÎç10µã20·Ö
-moment().format('lll');  // 2017Äê11ÔÂ21ÈÕÉÏÎç10µã20·Ö
-moment().format('LLLL'); // 2017Äê11ÔÂ21ÈÕĞÇÆÚ¶şÉÏÎç10µã20·Ö
-moment().format('llll'); // 2017Äê11ÔÂ21ÈÕĞÇÆÚ¶şÉÏÎç10µã20·Ö
+moment().format('LL');   // 2017å¹´11æœˆ21æ—¥
+moment().format('ll');   // 2017å¹´11æœˆ21æ—¥
+moment().format('LLL');  // 2017å¹´11æœˆ21æ—¥ä¸Šåˆ10ç‚¹20åˆ†
+moment().format('lll');  // 2017å¹´11æœˆ21æ—¥ä¸Šåˆ10ç‚¹20åˆ†
+moment().format('LLLL'); // 2017å¹´11æœˆ21æ—¥æ˜ŸæœŸäºŒä¸Šåˆ10ç‚¹20åˆ†
+moment().format('llll'); // 2017å¹´11æœˆ21æ—¥æ˜ŸæœŸäºŒä¸Šåˆ10ç‚¹20åˆ†

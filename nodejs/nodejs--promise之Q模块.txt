@@ -1,0 +1,113 @@
+在js中，各种回调，各种代码嵌套，导致代码风格很不好看，
+所以出现了流式风格的promise，promise和twisted的defer以及QT中并行库的future是一个概念，
+都是说明以后做什么，都是异步操作，不过QT的是多线程异步，而twisted和js都是单线程的，
+使用promise这样就不用把代码都写到各种回调中了，直接一个then就可以搞定了。
+
+Q实现promise的常用方法有7个，在不同情况下使用不同的方法，下面就一一来介绍：
+
+var Q = require('q');
+var fs = require('fs');
+var colors = require('colors');
+//将数据封装成promise
+//特点：封装一个数据，调用then直接得到该数据
+Q('hello,world').then(function (data) {
+    console.log(data);  //-->hello,world
+});
+
+
+//Q.fcall
+//将同步方法封装成promise
+//特点：传递一个function，返回一个promise，调用then得到方法的返回值
+
+Q.fcall(function(){
+
+    return 123;
+
+}).then(function(data){
+    console.log(data);  //--> 123
+});
+
+//定义两个参数供下面方法用
+var filename = '../public/test.xml';
+var encoding = 'utf-8';
+
+//Q.nfcall:
+//将异步方法封装成promise
+//特点：封闭时就得传递调用方法的参数，直接得到promise
+
+
+Q.nfcall(fs.readFile,filename,encoding).then(function (data) {
+    console.log(data);  //-->xml内容就不明说了，就这样的格式就对了
+});
+
+
+//Q.denodeify:
+//将异步方法封装成promise
+//特点：封装后返回一个方法，调用此方法得到promise
+
+var File_denodeify = Q.denodeify(fs.readFile);
+
+File_denodeify(filename,encoding).then(function(result){
+
+        console.log(result.green)
+    },function(err){
+
+        console.log(err.toString().red);
+    }
+);
+
+//Q.defer:使用最多
+//手动封装一个promise
+//特点：使用deferd对象的reject方法（失败回调）、resolve方法（成功回调）、promise属性来实现自定义promise。
+//（前面2个nfcal、denodeify底层应该也是用deferd实现的）
+
+var File_deferd = function(filename,encoding){
+    var deferred = Q.defer();
+    fs.readFile(filename,encoding,function(err,result){
+        if(err){
+            deferred.reject(err.toString().red);
+        }
+        deferred.resolve(result);
+    });
+
+    return deferred.promise;
+};
+//标准的then(onFulfilled,onRejected);
+//File_deferd(filename).then(function(result){
+
+//        console.log(result.toString().blue);
+//    },function(err){
+//        console.log(err.toString().red);
+//    }
+//);
+
+//用catch()捕获错误
+File_deferd(filename).then(function(result){
+
+        console.log(result.toString().blue);
+    }).catch(function (err) {
+    console.error(err);
+});
+
+
+//Q.makeNodeResolver:
+//手动封装一个promise
+//特点：和第deferd原理差不多，只不过用了deferd自带的方法省掉了我们手动实现reject方法、resolve方法
+var File_makeNodeResolver = function(filename,encoding){
+    var deferred = Q.defer();
+    fs.readFile(filename,encoding,deferred.makeNodeResolver());
+    return deferred.promise;
+};
+
+File_makeNodeResolver(filename,encoding).then(function(result){
+
+    console.log(result.green);
+},function(err){
+    console.log(err.toString().red);
+});
+
+
+//Q.all
+//将一批promise封装成一个promise
+//特点：可以并行执行一批promise，全部执行完毕后一起返回，得到的结果是一个数组
+Q.all([promise1,promise2,promise3]).then();

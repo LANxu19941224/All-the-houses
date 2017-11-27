@@ -1,0 +1,4 @@
+#String
+#取数据完成后但是后台没有返回任何数据时显示在分页条上的提示
+
+$('.selector').omGrid({emptyMsg : 'No data!'});

@@ -1,0 +1,9 @@
+#autoFit
+#Boolean类型
+#Default:false 
+#是否自动拉伸各列以适应表格的宽度（比如共2列第一列宽度100第二列宽度200），则当表格总宽度是600px时第一列自动会变成
+200px第二列自动变成400px）。
+
+###注意只有所有列的宽度都不是autoExpand时该属性才会起作用
+
+$('.selector').omGrid({autoFit : true});

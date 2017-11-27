@@ -1,0 +1,8 @@
+#nodejs 提供了一个 node-uuid 模块用于生成 uuid:
+#首先执行：npm install node-uuid
+var uuid = require('node-uuid');  
+console.log(uuid.v1())  
+console.log(uuid.v4()) 
+
+#v1 是基于时间戳生成uuid
+#v4是随机生成uuid

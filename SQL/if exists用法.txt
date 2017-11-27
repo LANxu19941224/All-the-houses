@@ -1,0 +1,11 @@
+1.介绍
+if not exists 即如果不存在，if exists 即如果存在
+2.使用
+a.判断数据库不存在时
+if not exists（select * from sys.databases where name = 'database_name'）
+b.判断表不存在时
+ if not exists (select * from sysobjects where id = object_id('table_name') and OBJECTPROPERTY(id, ’IsUserTable’) = 1)
+c.判断列不存在
+  if not exists （select * from syscolumns where id=object_id(’table_name’) and name=’column_name’）
+当判断的表不存时，我可以执行创建数据库，创建表，增加列，可以执行相应的SQL语句；
+而if exists同理判断，首先判断查询结果是否存在，如果存在执行判断后面的语句，查询的数据库，表，列的方法相同；

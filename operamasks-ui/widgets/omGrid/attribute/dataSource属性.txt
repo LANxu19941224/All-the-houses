@@ -1,0 +1,4 @@
+#String
+#下面的示例设置的dataSource，表示将从griddate.json这个地址取数据，同时附带start和limit两个请求参数
+
+$('.selector').omGrid({dataSource:'griddata.json'});

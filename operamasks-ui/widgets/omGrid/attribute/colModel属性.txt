@@ -1,0 +1,29 @@
+#colModel
+#Array[json]
+#Default:false
+
+#列数据模型，每一个元素都是一个对象字面量，定义该列的各个属性，该属性包括:
+header:表头文字
+name:与数据模型对应的字段
+align:列文字对齐方式，可以为left、center、right之中的一个
+renderer:列的渲染函数，接受3个参数，V表示当前值，rowData表示当前数据，rowIndex表示当前行号（从0开始）
+width:列的宽度，取值为Number或者autoExpand，注意只能有一个列被设置为autoExpand属性
+wrap:是否自动换行，取值为true或者false
+
+$(".selector").omGrid({
+     colModel : [ {
+             header : '地区',          //表头文字
+             name : 'city',          //与数据模型对应的字段
+             width : 120,            //列宽,可设置具体数字，也可设置为'autoExpand'，表示自动扩展
+             align : 'left',         //列文字对齐
+             renderer : function(v, rowData , rowIndex) {   //列渲染函数，接受3个参数，v表示当前值，rowData表示当前行数据，rowIndex表示当前行号(从0开始)
+                 return '<b>'+v+'</b>';  //地区这一列的文字加粗显示
+             }
+         }, {
+             header : '地址',
+             name : 'address',
+             align : 'left',
+             width : 'autoExpand'
+         } 
+     ]
+});
